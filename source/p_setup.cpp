@@ -87,7 +87,7 @@
 #include "w_wad.h"
 #include "z_auto.h"
 
-#include "../zlib/zlib.h"
+#include "zlib.h"
 
 extern const char *level_error;
 

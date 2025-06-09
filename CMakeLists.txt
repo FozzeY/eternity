@@ -107,7 +107,6 @@ include(ExternalLibraries)
 
 include_directories(acsvm)
 include_directories(libpng)
-include_directories(zlib)
 include_directories(adlmidi/include)
 
 set(ACSVM_NOFLAGS ON)
@@ -117,7 +116,6 @@ add_subdirectory(acsvm)
 set(WITH_CPP_EXTRAS ON)
 add_subdirectory(adlmidi)
 
-add_subdirectory(zlib)
 add_subdirectory(snes_spc)
 
 # WARNING: this section must be before add_subdirectory(libpng)
@@ -126,13 +124,11 @@ if(WIN32)
 
    set(ZLIB_LIBRARY zlibstatic CACHE STRING "zlib library name" FORCE)
    set(ZLIB_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/zlib CACHE STRING "zlib include directory" FORCE)
-   find_package(ZLIB REQUIRED)
 
    set(PNG_SHARED OFF CACHE BOOL "Build shared pnglib" FORCE)
    set(PNG_EXECUTABLES OFF CACHE BOOL "Build libpng executables" FORCE)
    set(PNG_TESTS OFF CACHE BOOL "Build libpng tests" FORCE)
 endif()
-add_subdirectory(libpng)
 
 # WARNING: add_subdirectory(source) must be below libpng, otherwise the png_static isn't found on Mac.
 add_subdirectory(source)
